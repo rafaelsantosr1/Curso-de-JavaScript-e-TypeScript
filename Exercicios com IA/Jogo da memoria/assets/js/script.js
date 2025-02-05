@@ -18,9 +18,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
     function virarCarta(carta) {
-        if (!podeVirar || cartasViradas.length >= 2 || carta === cartasViradas[0]) return;
+        // Verifica se a carta já está virada ou se o par já foi encontrado
+        if (
+            !podeVirar ||
+            cartasViradas.length >= 2 ||
+            carta === cartasViradas[0] ||
+            carta.classList.contains('parEncontrado')
+        ) {
+            return;
+        }
 
         carta.classList.add('virada');
         cartasViradas.push(carta);
@@ -35,6 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const carta2 = cartasViradas[1];
 
         if (carta1.dataset.valor === carta2.dataset.valor) {
+            // Par encontrado!
+            carta1.classList.add('parEncontrado'); // Marca o par como encontrado
+            carta2.classList.add('parEncontrado'); // Marca o par como encontrado
+
             cartasViradas = [];
             if (document.querySelectorAll('.carta:not(.virada)').length === 0) {
                 setTimeout(() => {
@@ -42,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 500);
             }
         } else {
+            // Par não encontrado!
             podeVirar = false;
             setTimeout(() => {
                 carta1.classList.remove('virada');
@@ -57,5 +69,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     embaralharCartas();
-
 });

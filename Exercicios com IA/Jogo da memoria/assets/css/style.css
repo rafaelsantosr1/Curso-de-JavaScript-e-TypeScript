@@ -13,33 +13,47 @@
     perspective: 1000px; /* Para efeito 3D ao virar */
     position: relative; /* Para posicionar a frente e o verso da carta */
     cursor: pointer;
+    transform-style: preserve-3d; /* Essencial para o 3D */
 }
 
-.carta img {
+.carta img.frente { /* Seletor mais específico */
     width: 100%;
     height: 100%;
-    /* object-fit: cover; Para garantir que a imagem cubra toda a carta */
     position: absolute;
     top: 0;
     left: 0;
     backface-visibility: hidden; /* Esconder o verso da carta */
     transition: transform 0.5s; /* Transição suave para virar a carta */
+    transform: rotateY(180deg); /* Frente da carta escondida inicialmente */
 }
 
-.carta .frente {
-    transform: rotateY(180deg); /* Frente da carta visível inicialmente */
-}
+.carta::before { /* Pseudo-elemento para o verso */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("./verso.jpg"); /* Imagem de verso */
+    background-size: cover; /* Ajuste conforme necessário */
+    background-repeat: no-repeat;
+    backface-visibility: hidden;
+    background-position: center;
 
-.carta .verso {
-    transform: rotateY(0deg); /* Verso da carta escondido inicialmente */
+    transform: rotateY(0deg); /* Verso da carta visível inicialmente */
+    transition: transform 0.5s; /* Transição */
 }
 
 .carta.virada .frente {
-    transform: rotateY(0deg); /* Frente da carta escondida quando virada */
+    transform: rotateY(0deg); /* Frente da carta visível quando virada */
 }
 
-.carta.virada .verso {
-    transform: rotateY(180deg); /* Verso da carta visível quando virada */
+.carta.virada::before { /* Pseudo-elemento do verso */
+    transform: rotateY(180deg); /* Verso da carta escondido quando virada */
+}
+
+.carta:hover {
+    transform: scale(1.1);
 }
 
 /* Estilos adicionais */
