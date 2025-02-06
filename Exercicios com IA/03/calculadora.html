@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+
+<body>
+    <h1>Calculadora</h1>
+    <form onsubmit="calcular('+'); return false;">
+        <input type="number" id="numero1" placeholder="Digite o primeiro número">
+        <input type="number" id="numero2" placeholder="Digite o segundo número">
+        <br>
+        <button onclick="calcular('+')">Somar</button>
+        <button onclick="calcular('-')">Subtrair</button>
+        <button onclick="calcular('*')">Multiplicar</button>
+        <button onclick="calcular('/')">Dividir</button>
+        <button onclick="zerar()">Zerar</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        function calcular(operacao) {
+            const numero1 = parseFloat(document.getElementById('numero1').value);
+            const numero2 = parseFloat(document.getElementById('numero2').value);
+            let resultado = 0;
+
+            switch (operacao) {
+                case '+':
+                    resultado = numero1 + numero2;
+                    break;
+                case '-':
+                    resultado = numero1 - numero2;
+                    break;
+                case '*':
+                    resultado = numero1 * numero2;
+                    break;
+                case '/':
+                    resultado = numero1 / numero2;
+                    break;
+            }
+
+            document.getElementById('resultado').textContent = 'Resultado: ' + resultado;
+        }
+
+        function zerar() {
+            document.getElementById('numero1').value = '';
+            document.getElementById('numero2').value = '';
+            document.getElementById('resultado').textContent = '';
+        }
+    </script>
+</body>
+
+</html>
