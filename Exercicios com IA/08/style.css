@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+
+
+body {
+    background-color: rgba(20, 58, 107, 0.212);
+}
+
+.container {
+    max-width: 640px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    font-size: 20px;
+    
+}
+
+#botao {
+    padding: 10px 20px;   /* Espaçamento interno */
+    font-size: 12px;      /* Tamanho do texto */
+    background-color: #3498db; /* Cor de fundo azul */
+    color: white;         /* Cor do texto branca */
+    border: none;         /* Remove a borda */
+    border-radius: 20px;  /* Deixa o botão arredondado */
+    cursor: pointer;      /* Muda o cursor ao passar o mouse */
+    transition: 0.3s;     /* Suaviza animações */
+}
+
+.numero {
+    width: 180px;            /* Largura do input */
+    height: 15px;            /* Altura do input */
+    font-size: 16px;         /* Tamanho do texto */
+    padding: 5px 10px;       /* Espaçamento interno */
+    border: 2px solid #101111; /* Cor da borda */
+    border-radius: 10px;     /* Deixa o input arredondado */
+    outline: none;           /* Remove o contorno ao focar */
+    transition: 0.3s;        /* Efeito suave nas mudanças */
+}
