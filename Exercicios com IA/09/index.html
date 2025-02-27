@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta http-equiv="Content-Language" content="pt-br">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <section class="container">
+        <h1>Formulário</h1>
+        <p>Nome: <input type="text" class="nome"></p>
+        <p>E-mail: <input type="text" class="email"></p>
+        <p>Nascimento: <input type="date" class="nascimento" ></p>
+        <p>Celular: <input type="number" class="celular"></p>
+        <p>CPF: <input type="number" class="cpf"></p>
+        <div class="radio-container">
+            <label for="batismo-sim">É batizado?</label><br>
+            <input type="radio" name="batismo" id="batismo-sim" value="sim">
+            <label for="batismo-sim">Sim</label>
+
+            <input type="radio" name="batismo" id="batismo-nao" value="não">
+            <label for="batismo-nao">Não</label>
+        </div>
+        <button id="botao">Próximo</button>
+    </section>
+
+    <section class="tabela">
+        <h1>Preenchido</h1>
+        <div id="resultado"></div>
+    </section>
+    <script src="./main.js"></script>
+</body>
+</html>
