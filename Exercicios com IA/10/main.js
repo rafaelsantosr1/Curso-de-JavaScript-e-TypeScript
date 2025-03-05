@@ -6,12 +6,14 @@ const termo = document.getElementById('termo');
 const botao = document.getElementById('botao');
 
 botao.addEventListener('click', () => {
-    const nome = nomeInput.value;
-    const email = emailInput.value;
-    const senha = senhaInput.value;
-    const idade = idadeInput.value;
+    event.preventDefault();
+    nome.value;
+    email.value;
+    senha.value;
+    idade.value;
+
+
 })
 
 
 
-event.preventDefault()
